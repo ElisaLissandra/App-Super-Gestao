@@ -6,7 +6,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\LogAcessoMiddleware;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +25,9 @@ Route::get('/', function () {
 });
 */
 
-Route::middleware(LogAcessoMiddleware::class)
-        ->get('/', [PrincipalController::class, 'principal'])
-        ->name('site.index');
+Route::get('/', [PrincipalController::class, 'principal'])->name('site.index');
 Route::get('/sobre-nos', [SobreNosController::class, 'sobreNos'])->name('site.sobrenos');
-Route::get('/contato', [ContatoController::class, 'contato'])
-        ->middleware(LogAcessoMiddleware::class)
-        ->name('site.contato');
+Route::get('/contato', [ContatoController::class, 'contato'])->name('site.contato');
 Route::post('/contato', [ContatoController::class, 'salvar'])->name('site.contato');
 Route::get('/login', function(){return 'Login';})->name('site.login');
 
