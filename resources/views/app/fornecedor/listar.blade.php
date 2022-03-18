@@ -43,6 +43,8 @@
                             @endforeach
                         </tbody>
                     </table>
+
+                    {{ $fornecedores->appends($request)->render("pagination::default")}}
                 </div>
             </div>
         </div>
