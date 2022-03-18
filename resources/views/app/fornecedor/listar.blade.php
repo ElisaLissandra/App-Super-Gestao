@@ -45,6 +45,17 @@
                     </table>
 
                     {{ $fornecedores->appends($request)->render("pagination::default")}}
+
+                    <!--
+                    <br>
+                    {{ $fornecedores->count() }} - Total de registros por página
+                    <br>
+                    {{ $fornecedores->total() }} - Total de registros por página
+                    <br>
+                    {{ $fornecedores->firstItem() }} - Total de registros por página
+                    -->
+                    <br>
+                    Exibindo {{ $fornecedores->count() }} fornecedores de {{ $fornecedores->total() }} (de {{ $fornecedores->firstItem() }} a {{ $fornecedores->lastItem() }}}})
                 </div>
             </div>
         </div>
